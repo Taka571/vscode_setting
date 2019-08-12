@@ -1,0 +1,29 @@
+{
+  "html.format.endWithNewline": true,
+  "files.insertFinalNewline": true,
+  "explorer.confirmDelete": false,
+  "editor.formatOnPaste": true,
+  "editor.tabSize": 2,
+  "editor.detectIndentation": false,
+  "window.zoomLevel": 0,
+  "files.autoSave": "off",
+  "ruby.rubocop.executePath": "/Users/kiuchitakahiro/.rbenv/shims/",
+  "ruby.rubocop.useBundler": true,
+  "logViewer.showStatusBarItemOnChange": true,
+  "markdown.preview.breaks": true,
+  "logViewer.watch": [
+    {
+      "title": "development.log",
+      "pattern": "/Users/kiuchitakahiro/rentio/log/development.log"
+    }
+  ],
+  "ruby.rubocop.configFilePath": "/Users/kiuchitakahiro/rentio/.rubocop.yml",
+  "ruby.rubocop.suppressRubocopWarnings": true,
+  "workbench.colorCustomizations": {
+    "terminal.foreground": "#00FF00",
+  },
+  "workbench.editor.enablePreview": false,
+  "editor.minimap.enabled": false,
+  "css.lint.hexColorLength": "ignore",
+  "css.lint.argumentsInColorFunction": "ignore",
+}
