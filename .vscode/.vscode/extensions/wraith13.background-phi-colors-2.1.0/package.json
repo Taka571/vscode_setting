@@ -1,0 +1,395 @@
+{
+	"name": "background-phi-colors",
+	"displayName": "Background Phi Colors",
+	"description": "This extension colors the background in various ways.",
+	"icon": "images/phihex.128.png",
+	"version": "2.1.0",
+	"publisher": "wraith13",
+	"license": "SEE LICENSE IN LICENSE_1_0.txt",
+	"engines": {
+		"vscode": "^1.30.0"
+	},
+	"bugs": {
+		"url": "https://github.com/wraith13/background-phi-colors-vscode/issues"
+	},
+	"homepage": "https://github.com/wraith13/background-phi-colors-vscode",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/wraith13/background-phi-colors-vscode.git"
+	},
+	"categories": [
+		"Other"
+	],
+	"keywords": [
+		"background",
+		"phi",
+		"color",
+		"indent",
+		"rainbow",
+		"highlight"
+	],
+	"activationEvents": [
+		"*"
+	],
+	"main": "./out/source/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "backgroundPhiColors.activeScopeEditor",
+				"title": "%backgroundPhiColors.activeScopeEditor.title%",
+				"category": "Background Phi Colors"
+			},
+			{
+				"command": "backgroundPhiColors.activeScopeDocument",
+				"title": "%backgroundPhiColors.activeScopeDocument.title%",
+				"category": "Background Phi Colors"
+			},
+			{
+				"command": "backgroundPhiColors.activeScopeWindow",
+				"title": "%backgroundPhiColors.activeScopeWindow.title%",
+				"category": "Background Phi Colors"
+			},
+			{
+				"command": "backgroundPhiColors.toggleMute",
+				"title": "%backgroundPhiColors.toggleMute.title%",
+				"category": "Background Phi Colors"
+			},
+			{
+				"command": "backgroundPhiColors.toggleMuteAll",
+				"title": "%backgroundPhiColors.toggleMuteAll.title%",
+				"category": "Background Phi Colors"
+			},
+			{
+				"command": "backgroundPhiColors.togglePause",
+				"title": "%backgroundPhiColors.togglePause.title%",
+				"category": "Background Phi Colors"
+			},
+			{
+				"command": "backgroundPhiColors.togglePauseAll",
+				"title": "%backgroundPhiColors.togglePauseAll.title%",
+				"category": "Background Phi Colors"
+			},
+			{
+				"command": "backgroundPhiColors.overTheLimig",
+				"title": "%backgroundPhiColors.overTheLimig.title%",
+				"category": "Background Phi Colors"
+			},
+			{
+				"command": "backgroundPhiColors.reportProfile",
+				"title": "%backgroundPhiColors.reportProfile.title%",
+				"category": "Background Phi Colors"
+			}
+		],
+		"configuration": [
+			{
+				"title": "Background Phi Colors",
+				"properties": {
+					"backgroundPhiColors.enabled": {
+						"type": "boolean",
+						"default": true,
+						"overridable": true,
+						"description": "%backgroundPhiColors.enabled.description%"
+					},
+					"backgroundPhiColors.enabledPanels": {
+						"type": "boolean",
+						"default": false,
+						"overridable": true,
+						"description": "%backgroundPhiColors.enabledPanels.description%"
+					},
+					"backgroundPhiColors.fileSizeLimit": {
+						"type": "number",
+						"default": 102400,
+						"minimum": 10240,
+						"maximum": 10485760,
+						"overridable": true,
+						"description": "%backgroundPhiColors.fileSizeLimit.description%"
+					},
+					"backgroundPhiColors.basicDelay": {
+						"type": "number",
+						"default": 10,
+						"minimum": 1,
+						"maximum": 1500,
+						"overridable": true,
+						"description": "%backgroundPhiColors.basicDelay.description%"
+					},
+					"backgroundPhiColors.additionalDelay": {
+						"type": "number",
+						"default": 200,
+						"minimum": 50,
+						"maximum": 1500,
+						"overridable": true,
+						"description": "%backgroundPhiColors.additionalDelay.description%"
+					},
+					"backgroundPhiColors.baseColor": {
+						"type": "string",
+						"default": "#5679C9",
+						"overridable": true,
+						"description": "%backgroundPhiColors.baseColor.description%"
+					},
+					"backgroundPhiColors.spaceBaseColor": {
+						"type": [
+							"string",
+							"null"
+						],
+						"default": null,
+						"overridable": true,
+						"description": "%backgroundPhiColors.spaceBaseColor.description%"
+					},
+					"backgroundPhiColors.spaceErrorColor": {
+						"type": "string",
+						"default": "#DD4444",
+						"overridable": true,
+						"description": "%backgroundPhiColors.spaceErrorColor.description%"
+					},
+					"backgroundPhiColors.symbolBaseColor": {
+						"type": [
+							"string",
+							"null"
+						],
+						"default": null,
+						"overridable": true,
+						"description": "%backgroundPhiColors.symbolBaseColor.description%"
+					},
+					"backgroundPhiColors.symbolColorMap": {
+						"type": "object",
+						"default": {},
+						"overridable": true,
+						"description": "%backgroundPhiColors.symbolColorMap.description%"
+					},
+					"backgroundPhiColors.tokenBaseColor": {
+						"type": [
+							"string",
+							"null"
+						],
+						"default": null,
+						"overridable": true,
+						"description": "%backgroundPhiColors.tokenBaseColor.description%"
+					},
+					"backgroundPhiColors.tokenColorMap": {
+						"type": "object",
+						"default": {},
+						"overridable": true,
+						"description": "%backgroundPhiColors.tokenColorMap.description%"
+					},
+					"backgroundPhiColors.indentMode": {
+						"type": "string",
+						"default": "full",
+						"enum": [
+							"none",
+							"light",
+							"smart",
+							"full"
+						],
+						"overridable": true,
+						"description": "%backgroundPhiColors.indentMode.description%"
+					},
+					"backgroundPhiColors.lineEnabled": {
+						"type": "boolean",
+						"default": true,
+						"overridable": true,
+						"description": "%backgroundPhiColors.lineEnabled.description%"
+					},
+					"backgroundPhiColors.tokenMode": {
+						"type": "string",
+						"default": "smart",
+						"enum": [
+							"none",
+							"light",
+							"smart",
+							"full"
+						],
+						"overridable": true,
+						"description": "%backgroundPhiColors.tokenMode.description%"
+					},
+					"backgroundPhiColors.activeScope": {
+						"type": "string",
+						"default": "window",
+						"enum": [
+							"editor",
+							"document",
+							"window"
+						],
+						"overridable": false,
+						"description": "%backgroundPhiColors.activeScope.description%"
+					},
+					"backgroundPhiColors.indentErrorEnabled": {
+						"type": "boolean",
+						"default": true,
+						"overridable": true,
+						"description": "%backgroundPhiColors.indentErrorEnabled.description%"
+					},
+					"backgroundPhiColors.trailingSpacesErrorEnabled": {
+						"type": "boolean",
+						"default": true,
+						"overridable": true,
+						"description": "%backgroundPhiColors.trailingSpacesErrorEnabled.description%"
+					},
+					"backgroundPhiColors.bodySpacesEnabled": {
+						"type": "boolean",
+						"default": true,
+						"overridable": true,
+						"description": "%backgroundPhiColors.bodySpacesEnabled.description%"
+					},
+					"backgroundPhiColors.trailingSpacesEnabled": {
+						"type": "boolean",
+						"default": true,
+						"overridable": true,
+						"description": "%backgroundPhiColors.trailingSpacesEnabled.description%"
+					},
+					"backgroundPhiColors.symbolEnabled": {
+						"type": "boolean",
+						"default": false,
+						"overridable": true,
+						"description": "%backgroundPhiColors.symbolEnabled.description%"
+					},
+					"backgroundPhiColors.indentErrorInOverviewRulerLane": {
+						"type": "string",
+						"default": "left",
+						"enum": [
+							"none",
+							"left",
+							"center",
+							"right",
+							"full"
+						],
+						"overridable": true,
+						"description": "%backgroundPhiColors.indentErrorInOverviewRulerLane.description%"
+					},
+					"backgroundPhiColors.activeTokenInOverviewRulerLane": {
+						"type": "string",
+						"default": "center",
+						"enum": [
+							"none",
+							"left",
+							"center",
+							"right",
+							"full"
+						],
+						"overridable": true,
+						"description": "%backgroundPhiColors.activeTokenInOverviewRulerLane.description%"
+					},
+					"backgroundPhiColors.trailingSpacesErrorInOverviewRulerLane": {
+						"type": "string",
+						"default": "right",
+						"enum": [
+							"none",
+							"left",
+							"center",
+							"right",
+							"full"
+						],
+						"overridable": true,
+						"description": "%backgroundPhiColors.trailingSpacesErrorInOverviewRulerLane.description%"
+					},
+					"backgroundPhiColors.spacesAlpha": {
+						"type": "number",
+						"default": 17,
+						"minimum": 0,
+						"maximum": 255,
+						"overridable": true,
+						"description": "%backgroundPhiColors.spacesAlpha.description%"
+					},
+					"backgroundPhiColors.spacesActiveAlpha": {
+						"type": "number",
+						"default": 51,
+						"minimum": 0,
+						"maximum": 255,
+						"overridable": true,
+						"description": "%backgroundPhiColors.spacesActiveAlpha.description%"
+					},
+					"backgroundPhiColors.spacesErrorAlpha": {
+						"type": "number",
+						"default": 136,
+						"minimum": 0,
+						"maximum": 255,
+						"overridable": true,
+						"description": "%backgroundPhiColors.spacesErrorAlpha.description%"
+					},
+					"backgroundPhiColors.symbolAlpha": {
+						"type": "number",
+						"default": 68,
+						"minimum": 0,
+						"maximum": 255,
+						"overridable": true,
+						"description": "%backgroundPhiColors.symbolAlpha.description%"
+					},
+					"backgroundPhiColors.tokenAlpha": {
+						"type": "number",
+						"default": 51,
+						"minimum": 0,
+						"maximum": 255,
+						"overridable": true,
+						"description": "%backgroundPhiColors.tokenAlpha.description%"
+					},
+					"backgroundPhiColors.tokenActiveAlpha": {
+						"type": "number",
+						"default": 102,
+						"minimum": 0,
+						"maximum": 255,
+						"overridable": true,
+						"description": "%backgroundPhiColors.tokenActiveAlpha.description%"
+					},
+					"backgroundPhiColors.indent": {
+						"type": "string",
+						"default": "auto",
+						"enum": [
+							"auto",
+							"tab",
+							"1 space",
+							"2 spaces",
+							"3 spaces",
+							"4 spaces",
+							"5 spaces",
+							"6 spaces",
+							"7 spaces",
+							"8 spaces"
+						],
+						"overridable": true,
+						"description": "%backgroundPhiColors.indent.description%"
+					},
+					"backgroundPhiColors.enabledProfile": {
+						"type": "boolean",
+						"default": true,
+						"overridable": false,
+						"description": "%backgroundPhiColors.enabledProfile.description%"
+					},
+					"backgroundPhiColors.overTheLimitMessageShowMode": {
+						"type": "string",
+						"default": "until 256x",
+						"enum": [
+							"none",
+							"until 16x",
+							"until 256x",
+							"always"
+						],
+						"overridable": true,
+						"description": "%backgroundPhiColors.overTheLimitMessageShowMode.description%"
+					}
+				}
+			}
+		]
+	},
+	"scripts": {
+		"vscode:prepublish": "npm run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"postinstall": "node ./node_modules/vscode/bin/install",
+		"test": "npm run compile && node ./node_modules/vscode/bin/test"
+	},
+	"devDependencies": {
+		"@types/mocha": "^2.2.42",
+		"@types/node": "^8.10.42",
+		"tslint": "^5.13.1",
+		"typescript": "^3.4.0",
+		"vscode": "^1.1.33",
+		"querystringify": "=2.0.0"
+	},
+	"dependencies": {
+		"phi-colors": "^1.0.1"
+	},
+	"__metadata": {
+		"id": "1b5ed8de-5b26-4efd-9f65-6d15b7702948",
+		"publisherId": "e92c9e02-367b-406d-a982-5c08f564588a",
+		"publisherDisplayName": "wraith13"
+	}
+}

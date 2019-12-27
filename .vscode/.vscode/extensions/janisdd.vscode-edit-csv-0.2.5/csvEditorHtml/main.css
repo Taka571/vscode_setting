@@ -1,0 +1,386 @@
+
+html, body {
+	height: 100%;
+	/* dark  for browser*/
+	/* background-color:#003b49; */
+	/* light */
+	/* background-color: #c3b990; */
+}
+
+.page {
+	display: flex;
+	flex-direction: column;
+	padding: 0.5em;
+}
+
+.full-h {
+	height: 100%;
+}
+
+.csv-editor-wrapper {
+	overflow: hidden;
+	flex: 1;
+}
+
+#csv-editor {
+	overflow: hidden;
+	/*when we set the initial size small and use handsontable option renderAllRows false
+	the initial render will not hang for large data (e.g. 100 000 rows ~ 13Mb)*/
+	width: 200px;
+	height: 200px;
+}
+
+.hoverable {
+	opacity: 0.7;
+}
+
+.hoverable:hover {
+	opacity: 1;
+}
+
+.clickable {
+	opacity: 0.7;
+	cursor: pointer
+}
+
+.clickable:hover {
+	opacity: 1;
+}
+
+.unsaved-changes-indicator {
+	color: rgb(224, 193, 69);
+	transition: opacity 0.5s ease-in-out;
+}
+
+.op-hidden {
+	opacity: 0;
+	pointer-events: none;
+}
+
+input.input {
+	width: 110px;
+}
+
+.field > label  {
+	display: block
+}
+
+.flexed {
+	display: flex
+}
+
+.mar-left {
+	margin-left: 1em;
+}
+
+.mar-left-half {
+	margin-left: 0.5em;
+}
+
+.mar-bot {
+	margin-bottom: 1em;
+}
+
+.handsontable th .remove-col,
+.handsontable th .remove-row {
+	visibility: hidden;
+}
+
+.handsontable th:hover .remove-col,
+.handsontable th:hover .remove-row {
+	visibility: visible;
+}
+.handsontable th .remove-col:hover,
+.handsontable th .remove-row:hover {
+	visibility: visible;
+	opacity: 1;
+}
+
+.remove-col,
+.remove-row {
+	margin-right: 4px; /*we need this else the sorting arrow will intersect this and causes flickering*/
+}
+
+.table-action-buttons {
+	margin: 0.5em 0;
+	position: relative;
+}
+
+.table-action-buttons .separated-btns {
+	display: flex;
+}
+
+.table-action-buttons .separated-btns button:not(:last-child) {
+	margin-right: 5px;
+}
+
+#status-info-wrapper {
+	flex: 1;
+	display: inline-block;
+	padding: 0.3em 1em 0.3em 0.3em;
+	overflow: hidden;
+}
+
+#status-info-wrapper > div {
+	overflow: hidden;
+	text-overflow: ellipsis;
+}
+#status-info {
+	white-space: nowrap;
+}
+
+#received-csv-prog-bar {
+	height: 5px;
+}
+#received-csv-prog-bar-wrapper {
+	font-display: none;
+	position: absolute;
+	left:0;
+	right:0;
+	bottom:-8px;
+}
+
+.preview-csv-textarea {
+	resize: vertical;
+	min-width: 200px;
+	height: 100%;
+}
+
+.help-modal {
+	z-index: 200; /*to be in front of handson table cols*/
+}
+
+#ask-read-again-modal .modal-content {
+	text-align: center;
+}
+
+.help-modal .modal-content {
+	width: 80%;
+}
+
+/* from https://gist.github.com/jeromyanglim/3952143 */
+/*usage:  <div className="keys">A</div> */
+.keys {
+  background: #eee;
+  padding: 2px 6px;
+  -moz-border-radius: 4px;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+  -moz-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px #ffffff inset;
+  -webkit-box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px #ffffff inset;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.2), 0 0 0 1px #ffffff inset;
+  background-color: #FAFAFA;
+  border-color: #CCCCCC #CCCCCC #FFFFFF;
+  border-style: solid solid none;
+  border-width: 1px 1px medium;
+  color: #444444;
+  font-family: 'Helvetica Neue', Helvetica, Arial, Sans-serif;
+  font-size: 11px;
+  font-weight: bold;
+  white-space: nowrap;
+  display: inline-block;
+  margin-bottom: 5px;
+}
+
+.margin-centered {
+	margin: auto;
+}
+
+.hidden-row {
+	display: none;
+}
+
+/* css cannot  select previous selements... */
+.hidden-row-previous-row {
+}
+
+.hidden-row-previous-row > th {
+	position: relative;
+	overflow: visible;
+}
+
+/* this is not visible...*/
+tr + tr.hidden-row {
+}
+
+tr.hidden-row + tr > th {
+	position: relative;
+	overflow: visible;
+}
+
+tr.hidden-row + tr > th:before {
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	content: '\f0de';
+	position: absolute;
+	right: 0;
+	top: -3px;
+}
+
+tr.hidden-row-previous-row > th:after {
+	font-family: "Font Awesome 5 Free";
+	font-weight: 900;
+	content: '\f0dd';
+	position: absolute;
+	right: 0;
+	bottom: -4px;
+}
+
+.find-widget {
+	display: flex;
+	position: fixed;
+	/* right: 100px; */ /* set this directly in html so we can access it via .style*/
+	top: 0;
+	height: 34px;
+
+	box-shadow: 0 2px 8px #000000;
+	z-index: 2;
+	width: 480px;
+}
+.find-widget #find-widget-info {
+	font-size: 13px;
+}
+
+.find-widget .gripper {
+	cursor: grab;
+	margin: 5px;
+	color: #6d6d6d;
+}
+.find-widget .gripper:active {
+	cursor: grabbing;
+}
+
+.find-widget .btn {
+	opacity: 0.7;
+	cursor: pointer;
+	margin: 5px;
+}
+
+.find-widget .btn.option {
+	font-size: 13px;
+	min-width: 15px;
+	margin: 5px 2px;
+}
+
+.find-widget .btn span {
+	vertical-align: middle;
+	line-height: 27px;
+	text-align: center;
+	padding: 3px;
+}
+
+.find-widget .btn:hover {
+	opacity: 1;
+}
+
+.find-widget .info {
+	display: flex;
+	margin: 5px;
+	align-self: center;
+	align-items: center;
+}
+
+.find-widget .search-input-wrapper {
+	position: relative;
+	margin: 5px;
+	flex: 1;
+}
+.find-widget .search-input-wrapper .input {
+	height: 23px;
+	width: 100%;
+	padding: 4px;
+	border-radius: 0;
+	border: 1px solid transparent;
+}
+
+.find-widget .search-input-wrapper .input:disabled {
+	color: #757575;
+}
+
+.outdated-search {
+	color: rgb(224, 193, 69);
+	margin-left: 5px;
+}
+
+.find-widget .error-input {
+	border: 1px solid rgb(190, 17, 0)!important;;
+}
+
+.find-widget .error-input:focus + .error-message {
+	display: block;
+}
+
+.find-widget .error-message {
+	display: none;
+	padding: 5px;
+	font-size: 13px;
+	background-color: rgb(90, 29, 29);
+	border: 1px solid rgb(190, 17, 0);
+}
+
+.find-widget .divider {
+	margin: 3px 5px;
+	width: 2px;
+}
+
+.find-widget .progress-bar {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	display: none;
+
+	height: 2px;
+	background-color: #3384ff;
+}
+
+.div-disabled {
+	opacity: 0.2!important;
+	pointer-events: none;
+}
+
+/* options bar*/
+
+.all-options {
+	display: flex;
+	align-items: stretch;
+}
+.all-options th {
+	vertical-align: middle;
+}
+
+.all-options td {
+	height: 100%;
+}
+
+.all-options table {
+	width: 100%;
+}
+
+.options-bar {
+	padding: 0.3em;
+}
+
+.options-bar:not(:last-child) {
+	margin-right: 5px;
+}
+
+.options-title {
+	padding: 0 10px;
+	white-space: nowrap;
+}	
+
+.options-title i {
+	vertical-align: text-bottom
+}
+
+.all-options tbody td:not(:last-child) .options-content {
+	padding: 0.5em 2.5em 0.5em 0.5em;
+}
+
+.options-content {
+	padding: 0.5em 0.5em 0.5em 0.5em;
+	height: 100%;
+}
+
+/* END options bar*/

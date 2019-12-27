@@ -1,0 +1,135 @@
+{
+	"name": "quick-open-rails",
+	"displayName": "Quick Open Rails",
+	"description": "Quickly opening Rails project files.",
+	"publisher": "aki77",
+	"icon": "images/icon.png",
+	"version": "0.2.0",
+	"engines": {
+		"vscode": "^1.37.0"
+	},
+	"categories": [
+		"Other"
+	],
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/aki77/vscode-quick-open-rails.git"
+	},
+	"bugs": {
+		"url": "https://github.com/aki77/vscode-quick-open-rails/issues"
+	},
+	"activationEvents": [
+		"onLanguage:ruby",
+		"onLanguage:erb",
+		"onLanguage:haml",
+		"onLanguage:slim",
+		"onCommand:quickOpenRails.open"
+	],
+	"main": "./out/extension.js",
+	"contributes": {
+		"commands": [
+			{
+				"command": "quickOpenRails.open",
+				"title": "Quick Open Rails"
+			}
+		],
+		"configuration": {
+			"title": "Quick Open Rails",
+			"properties": {
+				"quickOpenRails.autoDetectAppDirectories": {
+					"type": "boolean",
+					"default": true,
+					"description": "Automatically detect directories under app"
+				},
+				"quickOpenRails.excludeAppDirectories": {
+					"type": "array",
+					"items": {
+						"type": "string"
+					},
+					"default": [
+						"views"
+					]
+				},
+				"quickOpenRails.customCategories": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"required": [
+							"label",
+							"pattern"
+						],
+						"properties": {
+							"label": {
+								"type": "string"
+							},
+							"pattern": {
+								"type": "string"
+							},
+							"exclude": {
+								"type": "string"
+							},
+							"reverse": {
+								"type": "boolean",
+								"default": false
+							}
+						}
+					},
+					"default": [
+						{
+							"label": "Layout",
+							"pattern": "app/views/layouts/**/*"
+						},
+						{
+							"label": "View",
+							"pattern": "app/views/**/*",
+							"exclude": "app/views/layouts/**/*"
+						},
+						{
+							"label": "Config",
+							"pattern": "config/**/*"
+						},
+						{
+							"label": "Migration",
+							"pattern": "db/migrate/**/*",
+							"reverse": true
+						},
+						{
+							"label": "Task",
+							"pattern": "lib/tasks/**/*"
+						},
+						{
+							"label": "Spec",
+							"pattern": "spec/**/*"
+						}
+					]
+				}
+			}
+		}
+	},
+	"scripts": {
+		"vscode:prepublish": "yarn run compile",
+		"compile": "tsc -p ./",
+		"watch": "tsc -watch -p ./",
+		"pretest": "yarn run compile",
+		"test": "node ./out/test/runTest.js"
+	},
+	"devDependencies": {
+		"@types/glob": "^7.1.1",
+		"@types/mocha": "^5.2.6",
+		"@types/node": "^10.12.21",
+		"@types/vscode": "^1.37.0",
+		"glob": "^7.1.4",
+		"mocha": "^6.1.4",
+		"tslint": "^5.12.1",
+		"typescript": "^3.3.1",
+		"vscode-test": "^1.0.2"
+	},
+	"dependencies": {
+		"sort-on": "^4.1.0"
+	},
+	"__metadata": {
+		"id": "235306df-542d-4efb-8747-a42efd3831a1",
+		"publisherId": "551faf12-8aaf-4aad-9bee-2c382af51bee",
+		"publisherDisplayName": "aki77"
+	}
+}
