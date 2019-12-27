@@ -17,13 +17,15 @@
       "pattern": "/Users/kiuchitakahiro/rentio/log/development.log"
     }
   ],
-  "ruby.rubocop.configFilePath": "/Users/kiuchitakahiro/rentio/.rubocop.yml",
+  "ruby.rubocop.configFilePath": "/Users/kiuchitakahiro/rubocop.yml",
   "ruby.rubocop.suppressRubocopWarnings": true,
   "workbench.colorCustomizations": {
     "terminal.foreground": "#00FF00",
   },
-  "workbench.editor.enablePreview": false,
   "editor.minimap.enabled": false,
   "css.lint.hexColorLength": "ignore",
   "css.lint.argumentsInColorFunction": "ignore",
+  "diffEditor.renderSideBySide": false,
+  "terminal.integrated.shell.osx": "/bin/bash",
+  "diffEditor.ignoreTrimWhitespace": false,
 }
